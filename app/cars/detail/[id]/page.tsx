@@ -14,8 +14,11 @@ import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 import DeleteCarButton from "@/components/delete-car-button";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = await params;
+
+
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+  const { id } =  params;
   const supabase = await createClient();
 
   const { data: car, error } = await supabase

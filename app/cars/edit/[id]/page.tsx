@@ -2,7 +2,8 @@ import EditCarForm from "@/components/edit-car-form";
 import { createClient } from "@/utils/supabase/server";
 
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
 
   const { id } =  params;
   const supabase = await createClient();

@@ -22,6 +22,13 @@ export async function storeCar(
     .select()
     .single();
 
+    if (error) {
+      console.error(error);
+      return {
+        message: error.message,
+      };
+    }
+
   revalidatePath(`/cars/${data.id}`);
   redirect(`/cars/${data.id}`);
 }
@@ -32,7 +39,6 @@ export async function updateCar(
 ) {
   const supabase = await createClient();
 
-  console.log("update");
 
   const { data, error } = await supabase
     .from("cars")
@@ -57,11 +63,16 @@ export async function updateCar(
   redirect(`/cars/${data.id}`);
 }
 
-export async function deleteCar(carId) {
+export async function deleteCar(carId: string) {
   const supabase = await createClient();
   const { error } = await supabase.from("cars").delete().eq("id", carId);
 
-  console.log(carId);
+  if (error) {
+    console.error(error);
+    return {
+      message: error.message,
+    };
+  }
 
   revalidatePath(`/`);
 
