@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal } from 'lucide-react'
 import { Car } from './carType'
+import DeleteCarButton from './delete-car-button'
 
 
 export function CarTable({cars} : {cars: Car[]}) {
@@ -60,11 +61,10 @@ export function CarTable({cars} : {cars: Car[]}) {
                       <Link href={`/cars/edit/${car.id}/`}>Edit</Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="text-red-600">
-                      Delete
-                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
+
+                <DeleteCarButton carId={car.id} />
               </TableCell>
             </TableRow>
           ))}

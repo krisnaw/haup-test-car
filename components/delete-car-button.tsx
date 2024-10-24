@@ -15,13 +15,17 @@ import {
 } from "@/components/ui/alert-dialog";
 import { deleteCar } from "@/action/car-actions";
 
-export default function DeleteCarButton({carId} : {carId: string}) {
+export default function DeleteCarButton({ carId }: { carId: string }) {
+  
+  const handleOnclick = async () => {
+    await deleteCar(carId)
+  };
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="destructive">
-          <Trash2 className="mr-2 h-4 w-4" /> Delete
+          <Trash2 className="h-4 w-4" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
@@ -34,7 +38,7 @@ export default function DeleteCarButton({carId} : {carId: string}) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={() => deleteCar.bind(null, carId)}>
+          <AlertDialogAction onClick={handleOnclick}>
             Delete
           </AlertDialogAction>
         </AlertDialogFooter>

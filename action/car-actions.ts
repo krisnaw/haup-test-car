@@ -64,6 +64,7 @@ export async function updateCar(
 }
 
 export async function deleteCar(carId: string) {
+
   const supabase = await createClient();
   const { error } = await supabase.from("cars").delete().eq("id", carId);
 
