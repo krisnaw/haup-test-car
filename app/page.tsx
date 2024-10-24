@@ -9,6 +9,10 @@ export default async function Home() {
 
   const { data: cars, error } = await supabase.from("cars").select("*");
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="container mx-auto py-10">
       <div className="flex justify-between items-center mb-6">

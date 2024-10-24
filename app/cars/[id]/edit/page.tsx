@@ -8,14 +8,17 @@ export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
   const supabase = await createClient();
 
-  let { data: car, error } = await supabase
+  const { data: car, error } = await supabase
     .from("cars")
     .select("*")
     .eq("id", id)
     .single();
 
 
- 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
 
   return (
     <div className="max-w-2xl mx-auto p-4">

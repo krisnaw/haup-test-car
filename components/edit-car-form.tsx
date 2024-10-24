@@ -6,7 +6,6 @@ import { Car } from "./carType";
 import { SubmitButton } from "./submit-button";
 import { updateCar } from "@/action/car-actions";
 import { useActionState } from "react";
-import { Button } from "./ui/button";
 
 export default function EditCarForm({ car }: { car: Car }) {
     const [state, formAction] = useActionState(updateCar, { message: "" });
@@ -34,6 +33,8 @@ export default function EditCarForm({ car }: { car: Car }) {
                 <div className="col-span-full">
                     <SubmitButton>Save</SubmitButton>
                 </div>
+
+                <div>{state?.message}</div>
    
             </div>
         </form>

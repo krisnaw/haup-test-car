@@ -31,6 +31,8 @@ export default function AddCarForm() {
                 <div className="col-span-full">
                     <SubmitButton>Save</SubmitButton>
                 </div>
+
+                <div>{state?.message}</div>
    
             </div>
         </form>

@@ -14,18 +14,19 @@ import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 import DeleteCarButton from "@/components/delete-car-button";
 
-
-
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
   const supabase = await createClient();
 
-  let { data: car, error } = await supabase
+  const { data: car, error } = await supabase
     .from("cars")
     .select("*")
     .eq("id", id)
     .single();
-
+  
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="container mx-auto py-10">
