@@ -29,8 +29,8 @@ export async function storeCar(
       };
     }
 
-  revalidatePath(`/cars/${data.id}`);
-  redirect(`/cars/${data.id}`);
+  revalidatePath(`/cars/detail/${data.id}/`);
+  redirect(`/cars/detail/${data.id}`);
 }
 
 export async function updateCar(
@@ -59,8 +59,8 @@ export async function updateCar(
     };
   }
 
-  revalidatePath(`/cars/${data.id}`);
-  redirect(`/cars/${data.id}`);
+  revalidatePath(`/cars/detail/${data.id}/`);
+  redirect(`/cars/detail/${data.id}`);
 }
 
 export async function deleteCar(carId: string) {
