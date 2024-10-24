@@ -1,7 +1,6 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Car } from "./carType";
 import { SubmitButton } from "./submit-button";
 import { updateCar } from "@/action/car-actions";
@@ -27,7 +26,7 @@ export default function EditCarForm({ car }: { car: Car }) {
                 </div>
 
                 <div className="col-span-full">
-                    <Textarea placeholder="Enter any additional notes" name="notes" defaultValue={car.notes} />
+                    <Input placeholder="Enter any additional notes" name="notes" defaultValue={car.notes} />
                 </div>
                 
                 <div className="col-span-full">

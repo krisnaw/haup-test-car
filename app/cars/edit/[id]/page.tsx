@@ -4,8 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 
 export default async function Page({ params }: { params: { id: string } }) {
 
-
-  const { id } = await params;
+  const { id } =  params;
   const supabase = await createClient();
 
   const { data: car, error } = await supabase

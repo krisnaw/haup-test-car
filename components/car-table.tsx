@@ -54,11 +54,10 @@ export function CarTable({cars} : {cars: Car[]}) {
                   <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                     <DropdownMenuItem>
-                      <Link href={`/cars/${car.id}/`}>View details</Link>
+                      <Link href={`/cars/detail/${car.id}/`}>View details</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => alert(`Edit car ${car.id}`)}>
-                      
-                      <Link href={`/cars/${car.id}/edit`}>Edit</Link>
+                    <DropdownMenuItem>
+                      <Link href={`/cars/edit/${car.id}/`}>Edit</Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="text-red-600">

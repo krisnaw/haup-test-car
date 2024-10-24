@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </dl>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Link href={`/cars/${car.id}/edit`}>
+          <Link href={`/cars/edit/${car.id}/`}>
             <Button variant="outline">
               <Pencil className="mr-2 h-4 w-4" /> Edit
             </Button>
